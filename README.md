@@ -1,3 +1,3 @@
-# Read constexpr
+# Embed file
 
-Reads files and loads them as constexpr.
+Embed file into C++ executable example
