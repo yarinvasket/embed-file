@@ -2,16 +2,16 @@
 
 #include <fstream>
 #include <array>
-#include <string>
-
-using byte = unsigned char;
+#include <cstddef>
 
 namespace ReadFile {
-	constexpr std::array<byte, bytes> readFile(const std::string &path) {
+//	Unfortunately impossible, file read is not constexpr
+	constexpr auto readFile(const char *path) {
 		auto fd = std::ifstream(path, std::ios::binary | std::ios::ate);
 		auto size = fd.tellg();
-		std::array<byte, size> bytes;
-		fd.read(&bytes, size);
+		std::array<std::byte, size> bytes{};
+		fd.read((char *)&bytes, size);
+		fd.close();
 		return bytes;
 	}
 }

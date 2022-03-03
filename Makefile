@@ -8,7 +8,7 @@ default : all
 debug : FLAGS += -g
 debug : all
 
-all : src/main.cpp $(OBJs)
+all : src/main.cpp src/ReadFile.hpp $(OBJs)
 	mkdir -p bin
 	$(cc) $(FLAGS) -o bin/main.out src/main.cpp $(OBJs)
 
