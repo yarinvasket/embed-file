@@ -9,8 +9,10 @@ int main(int argc, char *argv[]) {
 
 	auto f = std::ifstream(argv[1], std::ios::binary | std::ios::ate);
 	auto size = f.tellg();
+	f.close();
+	f = std::ifstream(argv[1], std::ios::binary);
 
-	std::byte *buffer = new std::byte[size];
+	std::byte* buffer = new std::byte[size];
 	f.read((char *)buffer, size);
 	f.close();
 
@@ -23,4 +25,5 @@ int main(int argc, char *argv[]) {
 	auto of = std::ofstream(argv[2], std::ios::binary);
 	of.write(buffer2, toWrite.length());
 	of.close();
+	delete[] buffer;
 }
