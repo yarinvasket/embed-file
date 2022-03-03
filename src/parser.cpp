@@ -16,11 +16,11 @@ int main(int argc, char *argv[]) {
 
 	std::string toWrite;
 	for (size_t i = 0; i < size; i++) {
-		toWrite += std::to_string(buffer[i]) + ',';
+		toWrite += std::to_string((unsigned int)(buffer[i])) + ',';
 	}
 	toWrite.pop_back();
 	auto buffer2 = toWrite.data();
-	f = std::ofstream(argv[2], std::ios::binary);
-	f.write(buffer2, toWrite.length());
-	f.close();
+	auto of = std::ofstream(argv[2], std::ios::binary);
+	of.write(buffer2, toWrite.length());
+	of.close();
 }
