@@ -1,5 +1,8 @@
 /bin
 
+# Project specific files and folders
+/res/*.arr
+
 # Prerequisites
 *.d
 
