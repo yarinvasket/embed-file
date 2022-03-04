@@ -1,7 +1,7 @@
 FLAGS = 
 cc = g++
 OBJs = 
-FILEs = 
+FILEs = res/a.txt 
 
 default : FLAGS += -Ofast
 default : all
@@ -14,10 +14,7 @@ all : arrfiles src/main.cpp $(OBJs)
 	$(cc) $(FLAGS) -o bin/main.out src/main.cpp $(OBJs)
 
 arrfiles : $(FILEs) bin/parser.out
-	for file in $(FILES)
-	do
-		./bin/parser.out $file "$file.arr"
-	done
+	./bin/parser.out $(FILEs)
 
 bin/parser.out : src/parser.cpp
 	mkdir -p bin
